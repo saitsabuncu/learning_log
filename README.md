@@ -8,56 +8,100 @@ A simple web application to track your learning progress. Users can create topic
 - Add and edit entries for each topic.
 
 ## Installation
-1. Clone the repository:
+
+### Requirements
+- Python 3.x
+- Django 4.x or later
+
+### Setup
+
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/saitsabuncu/learning_log.git
    cd learning_log
    ```
 
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv ll_env
-   ll_env\Scripts\activate  # On Windows
-   source ll_env/bin/activate  # On macOS/Linux
-   ```
+2. **Create and activate a virtual environment:**
+   - **For Windows:**
+     ```bash
+     python -m venv ll_env
+     ll_env\Scripts\activate
+     ```
+   - **For macOS/Linux:**
+     ```bash
+     python3 -m venv ll_env
+     source ll_env/bin/activate
+     ```
 
-3. Install dependencies:
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Apply migrations and create the database:
+4. **Apply migrations:**
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-5. Run the server:
+5. **Create a superuser (optional):**
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Run the development server:**
    ```bash
    python manage.py runserver
    ```
 
-6. Open your browser and navigate to `http://127.0.0.1:8000/`.
+7. **Access the application:**
+   Open your browser and navigate to `http://127.0.0.1:8000/`.
 
-## Deployment
-To deploy this application to Heroku:
-1. Install Heroku CLI.
-2. Login to Heroku:
+## Deployment to Heroku
+
+1. **Install Heroku CLI:**
+   Follow the instructions on the [Heroku Dev Center](https://devcenter.heroku.com/articles/heroku-cli) to install the Heroku CLI for your operating system.
+
+2. **Login to Heroku:**
    ```bash
    heroku login
    ```
-3. Create a Heroku app and push the code:
+
+3. **Create a new Heroku application:**
    ```bash
-   heroku create
+   heroku create your-app-name
+   ```
+
+4. **Add PostgreSQL addon:**
+   ```bash
+   heroku addons:create heroku-postgresql:hobby-dev
+   ```
+
+5. **Set environment variables:**
+   ```bash
+   heroku config:set SECRET_KEY='your-secret-key'
+   heroku config:set DEBUG=False
+   ```
+
+6. **Push code to Heroku:**
+   ```bash
    git push heroku main
    ```
-4. Add PostgreSQL database and configure environment variables.
 
-## Requirements
-- Python 3.x
-- Django 4.x or later
-- PostgreSQL (for production)
-- Bootstrap (for styling)
+7. **Apply migrations on Heroku:**
+   ```bash
+   heroku run python manage.py migrate
+   ```
+
+8. **Create a superuser on Heroku (optional):**
+   ```bash
+   heroku run python manage.py createsuperuser
+   ```
+
+9. **Open the application:**
+   ```bash
+   heroku open
+   ```
 
 ## Contributing
 Feel free to fork the repository and submit pull requests. Contributions are welcome!
