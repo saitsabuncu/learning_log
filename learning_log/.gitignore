@@ -5,12 +5,12 @@ ll_env/
 *.pyc
 __pycache__/
 
-# Gizli bilgiler
-.env
-
 # IDE dosyaları
 .vscode/
 .idea/
 
 # Veritabanı
 db.sqlite3
+
+# Gizli bilgiler
+.env
