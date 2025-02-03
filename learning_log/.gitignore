@@ -8,9 +8,9 @@ __pycache__/
 # Gizli bilgiler
 .env
 
-# Veritabanı
-db.sqlite3
-
 # IDE dosyaları
 .vscode/
 .idea/
+
+# Veritabanı
+db.sqlite3
