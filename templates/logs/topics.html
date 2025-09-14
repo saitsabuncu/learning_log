@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-xl font-bold mb-4">Konular</h2>
+<ul>
+    {% for topic in topics %}
+        <li>
+            <a class="text-blue-600" href="{% url 'logs:topic_detail' topic.id %}">
+                {{ topic.text }}
+            </a>
+        </li>
+    {% empty %}
+        <p>Henüz konu yok.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
